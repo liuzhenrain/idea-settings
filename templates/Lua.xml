@@ -1,0 +1,36 @@
+<templateSet group="Lua">
+  <template name="tcps" value="local req = $PBNAME$.$PB_REQ$()&#10;local sendData = req:SerializeToString()&#10;TCPNetwork:GetInstance():Send(TCPSessionID.$VAR1$,MessageDefine_pb.$PB_VAR$,sendData,function(data)&#10;    local res = $PBNAME$.$PB_RES$()&#10;    res:ParseFromString(data)&#10;    $END$&#10;end)" description="Tcp Send" toReformat="true" toShortenFQNames="true">
+    <variable name="PBNAME" expression="" defaultValue="&quot;PbName&quot;" alwaysStopAt="true" />
+    <variable name="PB_REQ" expression="" defaultValue="&quot;PbRequest&quot;" alwaysStopAt="true" />
+    <variable name="VAR1" expression="" defaultValue="&quot;Hall&quot;" alwaysStopAt="true" />
+    <variable name="PB_VAR" expression="" defaultValue="&quot;MessageID&quot;" alwaysStopAt="true" />
+    <variable name="PB_RES" expression="" defaultValue="&quot;PbResponse&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="LUA_FUNCTION" value="true" />
+      <option name="LUA_IF" value="true" />
+    </context>
+  </template>
+  <template name="tcpso" value="local req = $PBNAME$.$PB_MESSAGE$()&#10;$END$&#10;local reqData = req:SerializeToString()&#10;TCPNetwork:GetInstance():SendOneWay(TCPSessionID.$VAR$,MessageDefine_pb.$MESS_ID$, reqData)" description="TCP Send One Way" toReformat="false" toShortenFQNames="true">
+    <variable name="PBNAME" expression="" defaultValue="&quot;PB_NAME&quot;" alwaysStopAt="true" />
+    <variable name="PB_MESSAGE" expression="" defaultValue="&quot;PB_MESSAGE&quot;" alwaysStopAt="true" />
+    <variable name="VAR" expression="" defaultValue="&quot;Hall&quot;" alwaysStopAt="true" />
+    <variable name="MESS_ID" expression="" defaultValue="&quot;MESS_ID&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="LUA_FUNCTION" value="true" />
+      <option name="LUA_IF" value="true" />
+    </context>
+  </template>
+  <template name="tcpl" value="--- 监听网络协议 $MSG_ID_D$ 具体返回结果查看 $PB_NAME_D$.$PB_MESSAGE_D$&#10;TCPNetwork:GetInstance():ListenMsg(TCPSessionID.$SESSION_ID$,MessageDefine_pb.$MSG_ID$,function (data)&#10;    local rsp = $PB_NAME$.$PB_MESSAGE$()&#10;    rsp:ParseFromString(data)&#10;    $END$&#10;end)" description="TCP Listen" toReformat="false" toShortenFQNames="true">
+    <variable name="SESSION_ID" expression="" defaultValue="&quot;SESSION_ID&quot;" alwaysStopAt="true" />
+    <variable name="MSG_ID" expression="" defaultValue="&quot;MSG_ID&quot;" alwaysStopAt="true" />
+    <variable name="PB_NAME" expression="" defaultValue="&quot;PB_NAME&quot;" alwaysStopAt="true" />
+    <variable name="PB_MESSAGE" expression="" defaultValue="&quot;PB_MESSAGE&quot;" alwaysStopAt="true" />
+    <variable name="MSG_ID_D" expression="" defaultValue="MSG_ID" alwaysStopAt="false" />
+    <variable name="PB_NAME_D" expression="" defaultValue="PB_NAME" alwaysStopAt="false" />
+    <variable name="PB_MESSAGE_D" expression="" defaultValue="PB_MESSAGE" alwaysStopAt="false" />
+    <context>
+      <option name="LUA_FUNCTION" value="true" />
+      <option name="LUA_IF" value="true" />
+    </context>
+  </template>
+</templateSet>
