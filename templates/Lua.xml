@@ -35,9 +35,9 @@
   </template>
   <template name="note" value="--- $DESC$&#10;--- Author: $USER$&#10;--- Create Time: $DATE$ $TIME$" description="Function Comments" toReformat="false" toShortenFQNames="true">
     <variable name="DESC" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="USER" expression="user()" defaultValue="" alwaysStopAt="true" />
-    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="true" />
-    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="true" />
+    <variable name="USER" expression="user()" defaultValue="" alwaysStopAt="false" />
+    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
     <context>
       <option name="LUA_CODE" value="true" />
       <option name="LUA_FUNCTION" value="false" />
