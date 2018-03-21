@@ -20,7 +20,7 @@
       <option name="LUA_IF" value="true" />
     </context>
   </template>
-  <template name="tcpl" value="--- 监听网络协议 $MSG_ID_D$ 具体返回结果查看 $PB_NAME_D$.$PB_MESSAGE_D$&#10;TCPNetwork:GetInstance():ListenMsg(TCPSessionID.$SESSION_ID$,MessageDefine_pb.$MSG_ID$,function (data)&#10;    local rsp = $PB_NAME$.$PB_MESSAGE$()&#10;    rsp:ParseFromString(data)&#10;    $END$&#10;end)" description="TCP Listen" toReformat="false" toShortenFQNames="true">
+  <template name="tcpl" value="--- 监听网络协议 $MSG_ID_D$ 具体返回结果查看 $PB_NAME_D$.$PB_MESSAGE_D$&#10;TCPNetwork:GetInstance():ListenMsg(TCPSessionID.$SESSION_ID$,MessageDefine_pb.$MSG_ID$,function (data)&#10;    local res = $PB_NAME$.$PB_MESSAGE$()&#10;    res:ParseFromString(data)&#10;    $END$&#10;end)" description="TCP Listen" toReformat="false" toShortenFQNames="true">
     <variable name="SESSION_ID" expression="" defaultValue="&quot;SESSION_ID&quot;" alwaysStopAt="true" />
     <variable name="MSG_ID" expression="" defaultValue="&quot;MSG_ID&quot;" alwaysStopAt="true" />
     <variable name="PB_NAME" expression="" defaultValue="&quot;PB_NAME&quot;" alwaysStopAt="true" />
